@@ -14,11 +14,6 @@ public class BoardController {
     @Autowired
     private BoardService boardService;
 
-    @GetMapping("/")
-    public String home() {
-        return "redirect:/board/list";
-    }
-
     @GetMapping("/board/write") // localhost:8080/board/write
     public String boardWriteForm() {
         return "boardwrite";
@@ -27,7 +22,7 @@ public class BoardController {
     @PostMapping("/board/writepro")
     public String boardWritePro(Board board) {
         boardService.write(board);
-        return "redirect:/board/list";
+        return "";
     }
 
     @GetMapping("/board/list")
